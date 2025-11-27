@@ -11,23 +11,33 @@
   function initThemeToggle() {
     // Check for saved theme preference or default to 'light'
     const savedTheme = localStorage.getItem('theme') || 'light';
-    document.body.className = savedTheme;
     
-    // Create or update toggle button text
+    // Apply saved theme immediately
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+    
+    // Update toggle button
     updateToggleButton(savedTheme);
     
     // Toggle theme on button click
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
-      themeToggle.addEventListener('click', function() {
-        const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      themeToggle.addEventListener('click', function(e) {
+        e.preventDefault();
         
-        // Add transition class for smooth theme change
-        document.body.style.transition = 'background-color 0.4s ease, color 0.4s ease';
+        const isDark = document.body.classList.contains('dark');
+        const newTheme = isDark ? 'light' : 'dark';
         
         // Update theme
-        document.body.className = newTheme;
+        if (newTheme === 'dark') {
+          document.body.classList.add('dark');
+        } else {
+          document.body.classList.remove('dark');
+        }
+        
         localStorage.setItem('theme', newTheme);
         updateToggleButton(newTheme);
         
@@ -45,10 +55,11 @@
     if (themeToggle) {
       themeToggle.textContent = theme === 'dark' ? '☀' : '☾';
       themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      themeToggle.setAttribute('title', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     }
   }
   
-  // Initialize theme on page load
+  // Initialize theme on page load - THIS MUST RUN FIRST
   initThemeToggle();
 
   // Enhanced button feedback helper
