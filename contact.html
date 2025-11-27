@@ -1,24 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>afrohumanoiidus — Contact</title>
 
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>afrohumanoiidus — contact</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/global.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <meta name="description" content="Contact afrohumanoiidus — inquiries, licensing, collaborations.">
 </head>
-<body>
+<body class="dark">
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/index.html">afrohumanoiidus</a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="/index.html">Audio</a>
-        <a href="/video.html">Video</a>
-        <a href="/blog.html">Blog</a>
-        <a href="/support.html">Support</a>
-        <a href="/contact.html" class="active">Contact</a>
+      <a class="brand" href="index.html">afrohumanoiidus</a>
+      <nav class="nav">
+        <a href="index.html">Audio</a>
+        <a href="video.html">Video</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Support</a>
+        <a href="contact.html" class="active">Contact</a>
       </nav>
     </div>
   </header>
@@ -27,42 +27,44 @@
     <h1 class="title">get in touch</h1>
 
     <section class="contact-hero">
+      <!-- Left: contact information -->
       <aside class="contact-card panel" aria-labelledby="contact-heading">
         <h2 id="contact-heading">contact</h2>
-        <p class="lead">For collaborations, licensing, or hi-res assets, reach out below.</p>
+        <p class="lead">For collaborations, licensing, or hi-res assets, reach out below. I usually reply within 2–3 business days.</p>
 
         <div class="meta-list">
           <div class="meta-item">
             <strong>email</strong>
             <div>
-              <div><a href="mailto:contact@yourdomain.com" style="color:var(--text); text-decoration:none; font-weight:600;">contact@yourdomain.com</a></div>
-              <div style="color:var(--muted); font-weight:400; margin-top:6px;">Primary contact for booking & licensing</div>
+              <div><a href="mailto:contact@yourdomain.com" style="color:var(--accent-c); text-decoration:none; font-weight:900;">contact@yourdomain.com</a></div>
+              <div style="color:var(--muted); font-weight:700; margin-top:6px;">Primary contact for booking & licensing</div>
             </div>
           </div>
 
           <div class="meta-item">
             <strong>social</strong>
             <div style="display:flex;gap:12px;flex-wrap:wrap;">
-              <a href="#" style="color:var(--muted); text-decoration:none; font-weight:600;">SoundCloud</a>
-              <a href="#" style="color:var(--muted); text-decoration:none; font-weight:600;">Bandcamp</a>
-              <a href="#" style="color:var(--muted); text-decoration:none; font-weight:600;">Instagram</a>
+              <a href="#" style="color:var(--muted); text-decoration:none; font-weight:800;">SoundCloud</a>
+              <a href="#" style="color:var(--muted); text-decoration:none; font-weight:800;">Bandcamp</a>
+              <a href="#" style="color:var(--muted); text-decoration:none; font-weight:800;">Instagram</a>
             </div>
           </div>
 
           <div class="meta-item">
             <strong>location</strong>
-            <div style="color:var(--muted); font-weight:400;">Remote / Toronto (available worldwide)</div>
+            <div style="color:var(--muted); font-weight:700;">Remote / Toronto (available worldwide)</div>
           </div>
         </div>
 
         <div class="contact-visual" aria-hidden="true">
           <div style="text-align:center;">
-            <div style="font-weight:600; color:rgba(0,0,0,0.06); font-size:1.05rem;">afrohumanoiidus</div>
-            <div style="margin-top:8px; color:var(--muted); font-weight:400;">Studio — minimal textures</div>
+            <div style="font-weight:800; color:rgba(255,255,255,0.06); font-size:1.05rem;">afrohumanoiidus</div>
+            <div style="margin-top:8px; color:var(--muted); font-weight:700;">Dark Y2K studio — minimal textures</div>
           </div>
         </div>
       </aside>
 
+      <!-- Right: contact form -->
       <form class="contact-form panel" id="contact-form" action="mailto:contact@yourdomain.com" method="post" enctype="text/plain">
         <label for="name">name</label>
         <input id="name" name="name" type="text" placeholder="Your name" required>
@@ -74,11 +76,11 @@
         <input id="subject" name="subject" type="text" placeholder="Brief subject" required>
 
         <label for="message">message</label>
-        <textarea id="message" name="message" placeholder="Tell me about your project or question..." required></textarea>
+        <textarea id="message" name="message" placeholder="Tell me about your project, license request, or question..." required></textarea>
 
-        <div class="form-actions" style="margin-top:12px;">
+        <div class="form-actions">
           <button type="submit" class="btn btn-primary">send message</button>
-          <button type="reset" class="btn">reset</button>
+          <button type="reset" class="btn btn-ghost">reset</button>
         </div>
 
         <p style="color:var(--muted); margin-top:12px; font-size:0.88rem;">
@@ -86,12 +88,34 @@
         </p>
       </form>
     </section>
+
   </main>
 
   <footer class="site-footer">
-    <div class="container"><small>© afrohumanoiidus — contact</small></div>
+    <div class="container">
+      <small>© afrohumanoiidus — contact</small>
+    </div>
   </footer>
 
-  <script src="/js/theme-toggle.js"></script>
+  <!-- lightweight client-side enhancement: validate form and show a small confirmation for mailto (optional) -->
+  <script>
+    (function(){
+      var f = document.getElementById('contact-form');
+      if (!f) return;
+      f.addEventListener('submit', function(e){
+        // mailto as fallback: keep behaviour but show a brief toast
+        setTimeout(function(){
+          var toast = document.createElement('div');
+          toast.textContent = 'Message prepared — your mail client will open. Thank you!';
+          toast.style.position='fixed'; toast.style.right='18px'; toast.style.bottom='18px';
+          toast.style.background='linear-gradient(90deg,#00f0d6,#ff3aa2)'; toast.style.color='#071617';
+          toast.style.padding='10px 14px'; toast.style.borderRadius='10px'; toast.style.fontWeight='800';
+          toast.style.boxShadow='0 8px 30px rgba(0,0,0,0.6)';
+          document.body.appendChild(toast);
+          setTimeout(()=> toast.remove(), 3500);
+        }, 400);
+      });
+    })();
+  </script>
 </body>
 </html>
