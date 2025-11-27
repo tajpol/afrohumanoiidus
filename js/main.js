@@ -4,63 +4,95 @@
 // Place this file at /js/main.js
 
 (function(){
+  'use strict';
+  
   // Add smooth scroll behavior
   document.documentElement.style.scrollBehavior = 'smooth';
 
   // ---------- Dark/Light Mode Toggle ----------
-  function initThemeToggle() {
-    // Check for saved theme preference or default to 'light'
+  // This runs IMMEDIATELY when the script loads
+  (function initTheme() {
+    // Get saved theme or default to 'light'
     const savedTheme = localStorage.getItem('theme') || 'light';
     
-    // Apply saved theme immediately
+    console.log('Initializing theme:', savedTheme); // Debug log
+    
+    // Apply theme immediately to prevent flash
     if (savedTheme === 'dark') {
       document.body.classList.add('dark');
     } else {
       document.body.classList.remove('dark');
     }
     
-    // Update toggle button
-    updateToggleButton(savedTheme);
-    
-    // Toggle theme on button click
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-      themeToggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const isDark = document.body.classList.contains('dark');
-        const newTheme = isDark ? 'light' : 'dark';
-        
-        // Update theme
-        if (newTheme === 'dark') {
-          document.body.classList.add('dark');
-        } else {
-          document.body.classList.remove('dark');
-        }
-        
-        localStorage.setItem('theme', newTheme);
-        updateToggleButton(newTheme);
-        
-        // Add click animation
-        this.style.transform = 'scale(0.9) rotate(180deg)';
-        setTimeout(() => {
-          this.style.transform = '';
-        }, 300);
+    // Update button when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        updateToggleButton(savedTheme);
+        attachToggleListener();
       });
+    } else {
+      updateToggleButton(savedTheme);
+      attachToggleListener();
     }
+  })();
+  
+  function attachToggleListener() {
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    if (!themeToggle) {
+      console.warn('Theme toggle button not found');
+      return;
+    }
+    
+    console.log('Theme toggle button found and listener attached');
+    
+    themeToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Get current theme
+      const isDark = document.body.classList.contains('dark');
+      const newTheme = isDark ? 'light' : 'dark';
+      
+      console.log('Toggling theme from', isDark ? 'dark' : 'light', 'to', newTheme);
+      
+      // Apply new theme
+      if (newTheme === 'dark') {
+        document.body.classList.add('dark');
+      } else {
+        document.body.classList.remove('dark');
+      }
+      
+      // Save to localStorage
+      localStorage.setItem('theme', newTheme);
+      
+      // Update button
+      updateToggleButton(newTheme);
+      
+      // Add visual feedback
+      this.style.transform = 'scale(0.9) rotate(180deg)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 300);
+      
+      console.log('Theme changed to:', newTheme);
+    });
   }
   
   function updateToggleButton(theme) {
     const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-      themeToggle.textContent = theme === 'dark' ? '☀' : '☾';
-      themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-      themeToggle.setAttribute('title', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    if (!themeToggle) return;
+    
+    if (theme === 'dark') {
+      themeToggle.innerHTML = '☀';
+      themeToggle.setAttribute('aria-label', 'Switch to light mode');
+      themeToggle.setAttribute('title', 'Switch to light mode');
+    } else {
+      themeToggle.innerHTML = '☾';
+      themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+      themeToggle.setAttribute('title', 'Switch to dark mode');
     }
   }
-  
-  // Initialize theme on page load - THIS MUST RUN FIRST
-  initThemeToggle();
 
   // Enhanced button feedback helper
   function addButtonFeedback(selector) {
