@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>afrohumanoiidus — video</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+</head>
+<body class="dark">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">afrohumanoiidus</a>
+      <nav class="nav">
+        <a href="index.html">Audio</a>
+        <a href="video.html" class="active">Video</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Support</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content">
+    <h1 class="title">video library</h1>
+
+    <section class="video-grid" id="video-grid">
+      <!-- Example items -->
+      <figure class="video-card" data-src="assets/videos/video1.mp4">
+        <img src="assets/images/video1-thumb.jpg" alt="video 1 thumbnail">
+        <figcaption>void sight — 2025</figcaption>
+      </figure>
+
+      <figure class="video-card" data-src="assets/videos/video2.mp4">
+        <img src="assets/images/video2-thumb.jpg" alt="video 2 thumbnail">
+        <figcaption>neon drift — 2024</figcaption>
+      </figure>
+
+      <figure class="video-card" data-src="assets/videos/video3.mp4">
+        <img src="assets/images/video3-thumb.jpg" alt="video 3 thumbnail">
+        <figcaption>concrete motion — 2023</figcaption>
+      </figure>
+    </section>
+
+    <!-- Video Lightbox -->
+    <div id="video-modal" class="modal" aria-hidden="true">
+      <div class="modal-inner">
+        <button id="video-close" class="modal-close" aria-label="close">✕</button>
+        <video id="modal-video" controls playsinline></video>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© afrohumanoiidus — video</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
