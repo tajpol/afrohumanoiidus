@@ -1,53 +1,76 @@
 <!doctype html>
 <html lang="en">
 <head>
-
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>afrohumanoiidus — support</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/global.css">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="css/global.css">
+
+  <meta name="description" content="afrohumanoiidus — support the work">
 </head>
 <body>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/index.html">afrohumanoiidus</a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="/index.html">Audio</a>
-        <a href="/video.html">Video</a>
-        <a href="/blog.html">Blog</a>
-        <a href="/support.html" class="active">Support</a>
-        <a href="/contact.html">Contact</a>
+      <a class="brand" href="index.html">afrohumanoiidus</a>
+      <nav class="nav">
+        <a href="index.html">Audio</a>
+        <a href="video.html">Video</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html" class="active">Support</a>
+        <a href="contact.html">Contact</a>
+        <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">☾</button>
       </nav>
     </div>
   </header>
 
-  <main class="container content">
-    <h1 class="title">support</h1>
+  <main class="container">
+    <h1 class="title" style="margin-top: 36px;">support</h1>
+    
+    <div class="panel" style="max-width: 720px; margin: 24px auto; padding: 32px;">
+      <h2 style="margin: 0 0 16px 0; font-size: 1.4rem; font-weight: 600; color: var(--text);">Support the work</h2>
+      <p style="color: var(--muted); line-height: 1.6; margin-bottom: 24px;">
+        If you enjoy the music and want to support continued creation, you can contribute through the following methods:
+      </p>
 
-    <section class="faq panel">
-      <details>
-        <summary>How do I play audio?</summary>
-        <p>Click any track in the playlist on the left. Use the play/pause and seek controls in the player area.</p>
-      </details>
+      <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 28px;">
+        <div style="padding: 20px; border-radius: 12px; background: linear-gradient(180deg, var(--panel), var(--glass)); border: 1px solid var(--glass-border);">
+          <h3 style="margin: 0 0 8px 0; font-size: 1rem; font-weight: 600; color: var(--text);">Ko-fi</h3>
+          <p style="color: var(--muted); margin: 0 0 12px 0; font-size: 0.9rem;">One-time support</p>
+          <a href="#" class="btn btn-primary" style="display: inline-block; text-decoration: none;">Support on Ko-fi</a>
+        </div>
 
-      <details>
-        <summary>How can I download tracks?</summary>
-        <p>Individual track files can be linked or downloaded directly if available. Contact via the contact page for hi-res files.</p>
-      </details>
+        <div style="padding: 20px; border-radius: 12px; background: linear-gradient(180deg, var(--panel), var(--glass)); border: 1px solid var(--glass-border);">
+          <h3 style="margin: 0 0 8px 0; font-size: 1rem; font-weight: 600; color: var(--text);">Patreon</h3>
+          <p style="color: var(--muted); margin: 0 0 12px 0; font-size: 0.9rem;">Monthly support with exclusive content</p>
+          <a href="#" class="btn btn-primary" style="display: inline-block; text-decoration: none;">Join on Patreon</a>
+        </div>
 
-      <details>
-        <summary>Where are the source files hosted?</summary>
-        <p>The site is a static GitHub Pages site. Track and video files are stored in <code>/assets/</code>.</p>
-      </details>
-    </section>
+        <div style="padding: 20px; border-radius: 12px; background: linear-gradient(180deg, var(--panel), var(--glass)); border: 1px solid var(--glass-border);">
+          <h3 style="margin: 0 0 8px 0; font-size: 1rem; font-weight: 600; color: var(--text);">Bandcamp</h3>
+          <p style="color: var(--muted); margin: 0 0 12px 0; font-size: 0.9rem;">Purchase releases directly</p>
+          <a href="#" class="btn btn-primary" style="display: inline-block; text-decoration: none;">Visit Bandcamp</a>
+        </div>
+      </div>
+
+      <p style="color: var(--muted); text-align: center; margin-top: 32px; font-size: 0.9rem;">
+        Every contribution helps keep this project independent and ad-free. Thank you for your support.
+      </p>
+    </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container"><small>© afrohumanoiidus — support</small></div>
+    <div class="container">
+      <small>© afrohumanoiidus — hand-crafted minimal audio hub</small>
+    </div>
   </footer>
 
-  <script src="/js/theme-toggle.js"></script>
+  <!-- Site JS -->
+  <script src="js/main.js"></script>
 </body>
 </html>
