@@ -1,93 +1,108 @@
 <!doctype html>
 <html lang="en">
 <head>
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>afrohumanoiidus — audio</title>
 
-  <!-- Inter font (regular + semibold) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/css/global.css">
-  <meta name="description" content="afrohumanoiidus — personal Soundcloud-style site">
+  <!-- jPlayer CSS (minimal) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/skin/pink.flag/jplayer.pink.flag.min.css">
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="css/global.css">
+
+  <meta name="description" content="afrohumanoiidus — personal Soundcloud-style site. Cyber-brutalist dark minimalist audio player.">
 </head>
-<body>
+<body class="dark">
+
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/index.html">afrohumanoiidus</a>
-
-      <nav class="nav" aria-label="Main navigation">
-        <a href="/index.html" class="active">Audio</a>
-        <a href="/video.html">Video</a>
-        <a href="/blog.html">Blog</a>
-        <a href="/support.html">Support</a>
-        <a href="/contact.html">Contact</a>
+      <a class="brand" href="index.html">afrohumanoiidus</a>
+      <nav class="nav">
+        <a href="index.html" class="active">Audio</a>
+        <a href="video.html">Video</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Support</a>
+        <a href="contact.html">Contact</a>
       </nav>
-
-      <!-- Theme toggle button (visible on homepage) -->
-      <button id="theme-toggle" aria-pressed="false" aria-label="Toggle theme"><span class="icon">☾</span> Dark</button>
     </div>
   </header>
 
   <main class="container main-grid">
-    <section class="player-panel panel">
+    <section class="player-panel">
       <h1 class="title">now playing</h1>
 
+      <!-- jPlayer container -->
       <div id="jquery_jplayer_1" class="jp-jplayer"></div>
-      <div id="jp_container_1" class="jp-audio" role="application">
+
+      <!-- jPlayer interface -->
+      <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
         <div class="player-top">
-          <div class="track-art" id="track-art" aria-hidden="true">ART</div>
+          <div class="track-art" id="track-art" aria-hidden="true"></div>
           <div class="track-meta">
-            <div id="jp-now-playing" class="now-playing">Select a track</div>
-            <div id="jp-artist" class="artist">afrohumanoiidus</div>
+            <div id="jp-now-playing" class="now-playing">Select a track from the list</div>
+            <div id="jp-artist" class="artist"></div>
           </div>
         </div>
 
         <div class="controls">
-          <button class="jp-prev">⟵</button>
-          <button class="jp-play">▶︎</button>
-          <button class="jp-next">⟶</button>
+          <button class="jp-prev" role="button" title="Previous">⟵</button>
+          <button class="jp-play" role="button" title="Play/Pause">▶︎</button>
+          <button class="jp-next" role="button" title="Next">⟶</button>
 
           <div class="time">
-            <span class="jp-current-time">0:00</span><span class="sep">/</span><span class="jp-duration">0:00</span>
+            <span class="jp-current-time" role="timer" aria-label="current time">0:00</span>
+            <span class="sep">/</span>
+            <span class="jp-duration" role="timer" aria-label="duration">0:00</span>
           </div>
 
           <div class="volume">
+            <label for="volume-range" class="visually-hidden">Volume</label>
             <input id="volume-range" type="range" min="0" max="1" step="0.01" value="0.9">
           </div>
         </div>
 
         <div class="progress">
-          <div class="jp-seek-bar"><div class="jp-play-bar"></div></div>
+          <div class="jp-seek-bar">
+            <div class="jp-play-bar"></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <aside class="playlist-panel panel">
+    <aside class="playlist-panel">
       <h2 class="playlist-title">playlist</h2>
       <ul id="playlist" class="playlist">
-        <li data-title="A1 — shifting grids" data-artist="afrohumanoiidus" data-mp3="/assets/audio/track1.mp3">A1 — shifting grids <span class="dur">3:24</span></li>
-        <li data-title="A2 — neon static" data-artist="afrohumanoiidus" data-mp3="/assets/audio/track2.mp3">A2 — neon static <span class="dur">4:08</span></li>
-        <li data-title="B1 — concrete pulse" data-artist="afrohumanoiidus" data-mp3="/assets/audio/track3.mp3">B1 — concrete pulse <span class="dur">5:02</span></li>
-        <li data-title="B2 — void drone" data-artist="afrohumanoiidus" data-mp3="/assets/audio/track4.mp3">B2 — void drone <span class="dur">6:11</span></li>
+        <!-- Example tracks (replace these with your files in /assets/audio/) -->
+        <li data-title="A1 — shifting grids" data-artist="afrohumanoiidus" data-mp3="assets/audio/track1.mp3">A1 — shifting grids <span class="dur">3:24</span></li>
+        <li data-title="A2 — neon static" data-artist="afrohumanoiidus" data-mp3="assets/audio/track2.mp3">A2 — neon static <span class="dur">4:08</span></li>
+        <li data-title="B1 — concrete pulse" data-artist="afrohumanoiidus" data-mp3="assets/audio/track3.mp3">B1 — concrete pulse <span class="dur">5:02</span></li>
+        <li data-title="B2 — void drone" data-artist="afrohumanoiidus" data-mp3="assets/audio/track4.mp3">B2 — void drone <span class="dur">6:11</span></li>
       </ul>
+
+      <div class="playlist-actions">
+        <button id="shuffle">shuffle</button>
+        <button id="repeat">repeat</button>
+        <a href="#" id="download-all" class="muted">download</a>
+      </div>
     </aside>
   </main>
 
   <footer class="site-footer">
-    <div class="container"><small>© afrohumanoiidus</small></div>
+    <div class="container">
+      <small>© afrohumanoiidus — hand-crafted minimal audio hub</small>
+    </div>
   </footer>
 
-  <!-- libs -->
+  <!-- Scripts: jQuery + jPlayer + jPlayer playlist plugin -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/jquery.jplayer.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/add-on/jplayer.playlist.min.js"></script>
 
-  <!-- your main player code (unchanged) -->
-  <script src="/js/main.js"></script>
-
-  <!-- theme toggle module -->
-  <script src="/js/theme-toggle.js"></script>
+  <!-- Site JS -->
+  <script src="js/main.js"></script>
 </body>
 </html>
