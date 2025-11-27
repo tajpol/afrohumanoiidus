@@ -1,4 +1,4 @@
-// main.js — Enhanced Y2K UI with smooth interactions
+// main.js — Enhanced Y2K UI with smooth interactions + Dark/Light Mode Toggle
 //
 // Requirements: jQuery, jPlayer, jPlayerPlaylist (loaded on index.html).
 // Place this file at /js/main.js
@@ -6,6 +6,50 @@
 (function(){
   // Add smooth scroll behavior
   document.documentElement.style.scrollBehavior = 'smooth';
+
+  // ---------- Dark/Light Mode Toggle ----------
+  function initThemeToggle() {
+    // Check for saved theme preference or default to 'light'
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.className = savedTheme;
+    
+    // Create or update toggle button text
+    updateToggleButton(savedTheme);
+    
+    // Toggle theme on button click
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', function() {
+        const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        // Add transition class for smooth theme change
+        document.body.style.transition = 'background-color 0.4s ease, color 0.4s ease';
+        
+        // Update theme
+        document.body.className = newTheme;
+        localStorage.setItem('theme', newTheme);
+        updateToggleButton(newTheme);
+        
+        // Add click animation
+        this.style.transform = 'scale(0.9) rotate(180deg)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 300);
+      });
+    }
+  }
+  
+  function updateToggleButton(theme) {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.textContent = theme === 'dark' ? '☀' : '☾';
+      themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+  }
+  
+  // Initialize theme on page load
+  initThemeToggle();
 
   // Enhanced button feedback helper
   function addButtonFeedback(selector) {
