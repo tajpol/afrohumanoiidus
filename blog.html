@@ -1,24 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>afrohumanoiidus — blog</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/global.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
 </head>
-<body>
+<body class="dark">
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/index.html">afrohumanoiidus</a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="/index.html">Audio</a>
-        <a href="/video.html">Video</a>
-        <a href="/blog.html" class="active">Blog</a>
-        <a href="/support.html">Support</a>
-        <a href="/contact.html">Contact</a>
+      <a class="brand" href="index.html">afrohumanoiidus</a>
+      <nav class="nav">
+        <a href="index.html">Audio</a>
+        <a href="video.html">Video</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="support.html">Support</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -27,26 +25,29 @@
     <h1 class="title">journal</h1>
 
     <section class="posts-grid">
-      <article class="post-card panel">
+      <article class="post-card">
         <h2><a href="#">On minimal tension — notes on texture</a></h2>
         <p class="meta">Nov 1, 2025 · 4 min read</p>
         <p class="excerpt">An exploration of low-frequency textures and how small modulations shape perception in lo-fi electronic space.</p>
         <a class="read-more" href="#">read</a>
       </article>
 
-      <article class="post-card panel">
+      <article class="post-card">
         <h2><a href="#">Mix approach: silence as instrument</a></h2>
         <p class="meta">Oct 19, 2025 · 2 min read</p>
         <p class="excerpt">Using negative space in arrangement to emphasize transients and structure.</p>
         <a class="read-more" href="#">read</a>
       </article>
+
+      <!-- Add more posts as plain HTML or convert into a static generator later -->
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container"><small>© afrohumanoiidus — journal</small></div>
+    <div class="container">
+      <small>© afrohumanoiidus — journal</small>
+    </div>
   </footer>
 
-  <script src="/js/theme-toggle.js"></script>
 </body>
 </html>
