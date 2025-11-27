@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>afrohumanoiidus — contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+</head>
+<body class="dark">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">afrohumanoiidus</a>
+      <nav class="nav">
+        <a href="index.html">Audio</a>
+        <a href="video.html">Video</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Support</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content contact-page">
+    <h1 class="title">contact</h1>
+
+    <section>
+      <p>For licensing, downloads, or collaborations — email <a href="mailto:contact@yourdomain.com">contact@yourdomain.com</a></p>
+
+      <!-- Static fallback form (mailto) -->
+      <form id="contact-form" action="mailto:contact@yourdomain.com" method="post" enctype="text/plain" class="contact-form">
+        <label>
+          name
+          <input type="text" name="name" required>
+        </label>
+
+        <label>
+          email
+          <input type="email" name="email" required>
+        </label>
+
+        <label>
+          message
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit">send</button>
+          <button type="reset" class="muted">clear</button>
+        </div>
+      </form>
+
+      <!-- Example Formspree option (uncomment and replace endpoint to use) -->
+      <!--
+      <form action="https://formspree.io/f/your-endpoint" method="POST">
+        ...same fields...
+      </form>
+      -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© afrohumanoiidus — contact</small>
+    </div>
+  </footer>
+</body>
+</html>
